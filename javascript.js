@@ -48,30 +48,44 @@ function playRound(playerSelection, computerSelection) {
   return [playerWins, returnMessage];
 }
 
-function game() {
-  let userScore = 0;
-  let computerScore = 0;
-  let returnMessage;
+const playButtons = document.querySelectorAll(`.playButton`);
+playButtons.forEach((button) =>
+  button.addEventListener("click", playRoundFromButton)
+);
 
-  let playerChoice;
-  let computerSelection;
+function playRoundFromButton(e) {
+  let playerChoice = this.getAttribute("data-key");
 
-  while (userScore < 5 && computerScore < 5) {
-    playerChoice = playerSelection();
-    computerSelection = getComputerChoice();
-    [playerWins, returnMessage] = playRound(playerChoice, computerSelection);
+  document.getElementById("playerChoiceIcon").textContent =
+    emojis[playerChoice];
 
-    console.log(returnMessage);
+  computerSelection = getComputerChoice();
+  document.getElementById("compChoiceIcon").textContent =
+    emojis[computerSelection];
 
-    if (playerWins != null) {
-      userScore += playerWins;
-      computerScore += playerWins;
+  [playerWins, returnMessage] = playRound(playerChoice, computerSelection);
+
+  if (playerWins != null) {
+    if (playerWins) {
+      winningIcon = emojis[playerChoice];
+      userScore++;
+    } else {
+      winningIcon = emojis[computerSelection];
+      computerScore++;
     }
   }
+  document.getElementById("winningIcon").textContent = winningIcon;
+  document.getElementById("winningMessage").textContent = returnMessage;
 
-  if (userScore === 5) {
-    console.log("You Win!");
-  } else {
-    console.log("Computer Wins!");
+  document.getElementById("userScore").textContent = userScore;
+  document.getElementById("computerScore").textContent = computerScore;
+
+  if (userScore == 5 || computerScore == 5) {
+    alert(`Game Over! ${userScore == 5 ? "You Win!" : "Computer Wins!"}`);
   }
 }
+
+const emojis = { rock: "🗿", paper: "💵", scissors: "✄" };
+let userScore = 0;
+let computerScore = 0;
+let winningIcon = "";

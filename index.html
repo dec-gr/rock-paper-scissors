@@ -3,9 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <title>Rocks!</title>
-    <script src="javascript.js"></script>
+    <script src="javascript.js" defer></script>
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <h1>This Rocks!</h1>
+    <div class="titleSection">
+      <div class="title">Rock, Paper, Scissors</div>
+    </div>
+
+    <div class="scoreSection">
+      <div class="scoreBoard">
+        <div class="userScore">
+          <div class="scoreCard">
+            <p class="scoreCardName">User</p>
+            <p class="scoreCardScore" id="userScore">0</p>
+          </div>
+        </div>
+        <div class="vsScore">V</div>
+        <div class="computerScore">
+          <div class="scoreCard">
+            <p class="scoreCardName">Computer</p>
+            <p class="scoreCardScore" id="computerScore">0</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="playSection">
+      <div class="playerCard">
+        <div class="currentChoice" id="playerChoiceIcon">🗿</div>
+        <div class="choiceSelector">
+          <button data-key="rock" class="playButton">🗿</button>
+          <button data-key="paper" class="playButton">💵</button>
+          <button data-key="scissors" class="playButton">✄</button>
+        </div>
+      </div>
+      <div class="roundWinnerCard">
+        <div class="winningHand" id="winningIcon">💵</div>
+        <div class="winningPlayer" id="winningMessage">Play On!</div>
+      </div>
+      <div class="playerCard">
+        <div class="currentChoice" id="compChoiceIcon">🗿</div>
+        <div class="choiceSelector">
+          <button class="playButton">🗿</button>
+          <button class="playButton">💵</button>
+          <button class="playButton">✄</button>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
