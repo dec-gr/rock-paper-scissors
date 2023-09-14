@@ -53,6 +53,12 @@ body {
   background-color: rgba(26, 137, 113, 0.304);
 }
 
+.currentChoice{
+  height: 50px;
+  font-size: 42px;
+  align-items: center;
+}
+
 button {
   background-color: rgba(128, 128, 128, 0.111);
 }
@@ -61,9 +67,18 @@ button {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: 8px;
   border: black solid;
   background-color: rgba(73, 131, 218, 0.407);
   margin-bottom: 32px;
   border-radius: 12px;
+  width: 200px;
+  height: 150px;
+}
+
+.winningHand{
+  font-size: 92px;
+  align-items: center;
+  padding:  0px
 }

@@ -50,7 +50,10 @@ function playRound(playerSelection, computerSelection) {
 
 const playButtons = document.querySelectorAll(`.playButton`);
 playButtons.forEach((button) =>
-  button.addEventListener("click", playRoundFromButton)
+  {if (button.classList.contains('playerButton')) {
+  button.addEventListener("click", playRoundFromButton)}
+  
+}
 );
 
 function playRoundFromButton(e) {
